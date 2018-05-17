@@ -46,6 +46,10 @@ import { DeleteComponent } from './home/dialogs/delete/delete.component';
     ReactiveFormsModule
   ],
   declarations: [RootComponent, HomeComponent, SettingsComponent, AddDialogComponent, EditDialogComponent, DeleteComponent],
+  entryComponents: [
+    AddDialogComponent,
+    EditDialogComponent  
+  ],
   exports: [],
   providers: [AuthGuard, DashboardService, SetupService]
 })

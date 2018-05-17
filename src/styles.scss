@@ -1,20 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
 
-/*
- * Base structure
- */
+@include mat-core();
 
-/* Move down content because we have a fixed navbar that is 3.5rem tall */
+$primary: mat-palette($mat-indigo, 500);
+$accent:  mat-palette($mat-pink, 500, A200, A400);
+$warn:    mat-palette($mat-red, 500);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
 body {
-    padding-top: 3.5rem;
-}
-  
-/*
- * Typography
- */
-  
-h1 {
-    padding-bottom: 9px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
+  // font-family: $mat-font-family;
+  font-weight: normal;
+  margin: 0;
 }

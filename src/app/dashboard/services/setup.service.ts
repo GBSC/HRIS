@@ -23,6 +23,10 @@ export class SetupService {
 
   /** CRUD METHODS */
   getAllCountries(): void {
+      
+    let authToken = localStorage.getItem('auth_token');  
+    let headers = {headers: {'Content-Type':'application/json','Authorization':`bearer ${authToken}`}}
+    
     this.httpClient.get<Country[]>(this.API_URL).subscribe(data => {
       this.dataChange.next(data);
     },

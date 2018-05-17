@@ -29,7 +29,7 @@ export class DashboardService extends BaseService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let authToken = localStorage.getItem('auth_token');
-    // headers.append('Authorization', `bearer ${authToken}`);
+    headers.append('Authorization', `bearer ${authToken}`);
 
     return this.http.get(this.baseUrl + "api/setup/getallcountries", { headers })
       .map(res => {
