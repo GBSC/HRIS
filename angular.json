@@ -22,12 +22,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss",
-              "src/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css",
-              "src/assets/vendors/base/vendors.bundle.css",
-              "src/assets/demo/default/base/style.bundle.css"             
-            ],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
