@@ -17,12 +17,22 @@ import { AccountModule }  from './account/account.module';
 import { DashboardModule }  from './dashboard/dashboard.module';
 
 import { ConfigService } from './shared/utils/config.service';
+import { HeaderNavComponent } from './shared/header-nav/header-nav/header-nav.component';
+import { FooterComponent } from './shared/footer/footer/footer.component';
+import { AsideNavComponent } from './shared/aside-nav/aside-nav.component';
+import { LayoutComponent } from './shared/layout/layout.component';
+import { QuickSidebarComponent } from './shared/quick-sidebar/quick-sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent],
+    HomeComponent,
+    HeaderNavComponent,
+    FooterComponent,
+    AsideNavComponent,
+    LayoutComponent,
+    QuickSidebarComponent],
   imports: [
     AccountModule,
     DashboardModule,
