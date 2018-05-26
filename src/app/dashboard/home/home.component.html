@@ -1,78 +1,144 @@
-<mat-toolbar color="primary">
-  <span class="spacer"></span>
-  Reload data:
-  <button mat-icon-button (click)="refresh()">
-    <mat-icon>refresh</mat-icon>
-  </button>
-</mat-toolbar>
 
-<div class="container mat-elevation-z8">
+  <!-- BEGIN: Subheader -->
+  
+  <!-- END: Subheader -->
+  <div class="m-content m--padding-5">
+  
+            <div class="m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light">
+            <div class="m-portlet__head">
+                
+                
+            </div>
+            <div class="m-portlet__body">
+                <div class="m-widget17">
+                    <div class="m-widget17__visual m-widget17__visual--chart m-portlet-fit--top m-portlet-fit--sides m--bg-danger">
+                        <div class="m-widget17__chart" style="height:180px;"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                            
+                        </div>
+                    </div>
+                    <div class="m-widget17__stats">
+                        <div class="m-widget17__items m-widget17__items-col1">
+                            <div class="m-widget17__item" style="
+                            width: 225px;
+                            margin-top: -138px;
+                            height: 185px;
+                            margin-left: -52px;
+                        ">
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="m-widget17__items m-widget17__items-col2">
+                            
+                          <div class="m-card-profile__details">
+                            <span class="m-card-profile__name">
+                              Mark Andre
+                            </span>
+                            <a href="" class="m-card-profile__email m-link">
+                              mark.andre@gmail.com
+                            </a>
+                          </div>
+                        </div>
 
-  <div class="form">
-    <mat-form-field floatPlaceholder="never" color="accent">
-      <input matInput #filter placeholder="Filter issues">
-    </mat-form-field>
+
+                    </div><div class="row">
+  <div class="col-md-12 col-lg-12">
+    <mat-toolbar color="primary">
+      <span class="spacer"></span>
+      Reload data:
+      <button mat-icon-button (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </mat-toolbar>
+    
+    <div class="container mat-elevation-z8">
+    
+      <div class="form">
+        <mat-form-field floatPlaceholder="never" color="accent">
+          <input matInput #filter placeholder="Filter issues">
+        </mat-form-field>
+      </div>
+    
+      <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+    
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="Id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.Id}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="Code">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Code</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.Code}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Name}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="Currency">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Currency</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Currency}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="CurrencyISO">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>CurrencyISO</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.CurrencyISO}}</mat-cell>
+        </ng-container>
+    
+        <!-- actions -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button color="primary" (click)="addNew()">
+              <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+            </button>
+          </mat-header-cell>
+    
+          <mat-cell *matCellDef="let row; let i=index;">
+            <button mat-icon-button color="accent" (click)="startEdit(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
+              <mat-icon aria-label="Edit">edit</mat-icon>
+            </button>
+    
+            <button mat-icon-button color="accent" (click)="deleteItem(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    
+    
+      <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+        No results
+      </div>
+    
+      <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+    </div>
+    
+    
   </div>
-
-  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
-
-    <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- ID Column -->
-    <ng-container matColumnDef="Id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.Id}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Code">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Code</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.Code}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.Name}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Currency">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Currency</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.Currency}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="CurrencyISO">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>CurrencyISO</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.CurrencyISO}}</mat-cell>
-    </ng-container>
-
-    <!-- actions -->
-    <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" (click)="addNew()">
-          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
-        </button>
-      </mat-header-cell>
-
-      <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="accent" (click)="startEdit(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
-          <mat-icon aria-label="Edit">edit</mat-icon>
-        </button>
-
-        <button mat-icon-button color="accent" (click)="deleteItem(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
-          <mat-icon aria-label="Delete">delete</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-
-
-  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
-    No results
-  </div>
-
-  <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-  </mat-paginator>
 </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!--begin:: Widgets/Activity-->
+        
+        
+        <!--end:: Widgets/Activity-->
+    
+
+            
+            
+            </div>
+
+
+
