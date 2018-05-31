@@ -10,8 +10,8 @@ import { Country } from '../../../models/country,interface';
   styleUrls: ['./add.component.css']
 })
 
-export class AddDialogComponent {
-  constructor(public dialogRef: MatDialogRef<AddDialogComponent>,
+export class AddCountryComponent {
+  constructor(public dialogRef: MatDialogRef<AddCountryComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Country,
               public dataService: SetupService) { }
 
@@ -34,7 +34,7 @@ export class AddDialogComponent {
     this.dialogRef.close();
   }
 
-  public confirmAdd(): void {
+  public AddCountrycomponent(): void {
     this.dataService.addCountry(this.data);
   }
 }

@@ -1,0 +1,195 @@
+<div appunwraptag="" class="m-subheader">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+        Employee Details
+      </h3>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          <a class="m-nav__link m-nav__link--icon" href="#" ng-reflect-href="#">
+            <i class="m-nav__link-icon la la-home"></i>
+          </a>
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          <a class="m-nav__link" href="" ng-reflect-href="">
+            <span class="m-nav__link-text">
+              Home
+            </span>
+          </a>
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          <a class="m-nav__link" href="" ng-reflect-href="">
+            <span class="m-nav__link-text">
+              Employee Details
+            </span>
+          </a>
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+
+      </ul>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</div>
+
+<div class="m-content">
+  <div class="row">
+
+    <div class="col-lg-3">
+
+
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">
+                Navigations
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body" style="padding-top:  12px !important; padding-right: 12px !important;">
+          <div class="m-demo" data-code-html="true" data-code-js="false" data-code-preview="true">
+            <div class="m-demo__preview">
+              <ul class="m-nav nav nav-tabs">
+                <li  class="m-nav__item" (click)="setTabItem('Activity')">
+                  <a class="m-nav__link" href="#home-r" data-toggle="tab">
+                    <i class="m-nav__link-icon flaticon-share"></i>
+                    <span class="m-nav__link-text">
+                        Basic Information
+                    </span>
+                  </a>
+                </li>
+                <li class="m-nav__item" (click)="setTabItem('FAQ')">
+                  <a class="m-nav__link" href="#profile-r" data-toggle="tab">
+                    <i class="m-nav__link-icon flaticon-info"></i>
+                    <span class="m-nav__link-text">
+                        Profile Picture
+                    </span>
+                  </a>
+                </li>
+                <li class="m-nav__item">
+                  <a class="m-nav__link" href="#messages-r" data-toggle="tab">
+                    <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                    <span class="m-nav__link-text">
+                        Immigration
+                    </span>
+                  </a>
+                </li>
+                <li class="m-nav__item">
+                  <a class="m-nav__link" href="#settings-r" data-toggle="tab">
+                    <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                    <span class="m-nav__link-text">
+                        Emergency Contacts
+                    </span>
+                  </a>
+                </li>
+                <li class="m-nav__item">
+                    <a class="m-nav__link" href="#Social" data-toggle="tab">
+                      <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                      <span class="m-nav__link-text">
+                          Social Networking
+                      </span>
+                    </a>
+                  </li>
+                  <li class="m-nav__item">
+                      <a class="m-nav__link" href="#Document" data-toggle="tab">
+                        <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                        <span class="m-nav__link-text">
+                            Document
+                        </span>
+                      </a>
+                    </li>
+                    <li class="m-nav__item">
+                        <a class="m-nav__link" href="#Qualification" data-toggle="tab">
+                          <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                          <span class="m-nav__link-text">
+                              Qualification
+                          </span>
+                        </a>
+                      </li>
+                      <li class="m-nav__item">
+                          <a class="m-nav__link" href="#Experience" data-toggle="tab">
+                            <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                            <span class="m-nav__link-text">
+                                Work Experience
+                            </span>
+                          </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link" href="#Bank" data-toggle="tab">
+                              <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                              <span class="m-nav__link-text">
+                                  Bank Account
+                              </span>
+                            </a>
+                          </li>
+                          <li class="m-nav__item">
+                              <a class="m-nav__link" href="#cPassword" data-toggle="tab">
+                                <i class="m-nav__link-icon flaticon-cogwheel-2"></i>
+                                <span class="m-nav__link-text">
+                                    Change Password
+                                </span>
+                              </a>
+                            </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!-- required for floating -->
+      <!-- Nav tabs -->
+
+    </div>
+
+
+
+    <div class="col-lg-9">
+      <!-- Tab panes -->
+      <div class="m-portlet">
+        <div class="m-portlet__body">
+          <div class="tab-content">
+            <div class="tab-pane active" id="home-r">
+              <app-basicinformation></app-basicinformation>
+            </div>
+            <div class="tab-pane" id="profile-r"><app-profilepic></app-profilepic></div>
+            <div class="tab-pane" id="messages-r"><app-immigration></app-immigration></div>
+            <div class="tab-pane" id="settings-r"><app-emergencycontact></app-emergencycontact></div>
+            <div class="tab-pane" id="Social"><app-social></app-social></div>
+            <div class="tab-pane" id="Document"><app-document></app-document></div>
+            <div class="tab-pane" id="Qualification"><app-qualification></app-qualification></div>
+            <div class="tab-pane" id="Experience"><app-experience></app-experience></div>
+            <div class="tab-pane" id="Bank"><app-bank></app-bank></div>
+            <div class="tab-pane" id="cPassword"><app-cpassword></app-cpassword></div>
+          </div>
+        </div>
+        <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions">
+              <button type="reset" class="btn btn-brand">
+                Submit
+              </button>
+              <button type="reset" class="btn btn-secondary">
+                Cancel
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

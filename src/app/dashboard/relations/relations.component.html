@@ -1,0 +1,79 @@
+<mat-toolbar color="primary">
+  <span class="spacer"></span>
+  Reload data:
+  <button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container mat-elevation-z8">
+
+  <div class="form">
+    <mat-form-field floatPlaceholder="never" color="accent">
+      <input matInput #filter placeholder="Filter issues">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+    <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="Id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.Id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Code">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Code</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.Code}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.Name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.Description}}</mat-cell>
+    </ng-container>
+
+  
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button class="btn btn-primary btn-sm m-btn  m-btn m-btn--icon" (click)="addreltion()">
+          <span><i class="la la-pencil-square-o"></i>
+            <span>
+             Add New
+             </span>
+              </span>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button class="buton_Padding btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only" (click)="Editreltion(i, row.Id,row.Code, row.Name, row.Description)">
+          <i class="la la-pencil"></i>
+        </button>
+
+        <button class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only"(click)="deletereltion(i, row.Id,row.Code, row.Name, row.Description)">
+          <i class="la la-trash-o"></i>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No results
+  </div>
+
+  <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>

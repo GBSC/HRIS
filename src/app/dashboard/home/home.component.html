@@ -464,7 +464,7 @@
                     <!-- actions -->
                     <ng-container matColumnDef="actions">
                       <mat-header-cell *matHeaderCellDef>
-                        <button (click)="addNew()" class="btn btn-primary btn-sm m-btn  m-btn m-btn--icon">
+                        <button (click)="addNewCountry()" class="btn btn-primary btn-sm m-btn  m-btn m-btn--icon">
                             <span>
 																<i class="la la-pencil-square-o"></i>
 																<span>
@@ -475,11 +475,11 @@
                       </mat-header-cell>
                 
                       <mat-cell *matCellDef="let row; let i=index;">
-                        <button style="margin-right: 8px; margin-left: 15px;" class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only" (click)="startEdit(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
+                        <button style="margin-right: 8px; margin-left: 15px;" class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only" (click)="EditNewCountry(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
                             <i class="la la-pencil"></i>
                         </button>
                 
-                        <button class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only" (click)="deleteItem(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
+                        <button class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only" (click)="deleteNewCountry(i, row.Id,row.Code, row.Name, row.Currency, row.CurrencyISO)">
                             <i class="la la-trash-o"></i>
                         </button>
                       </mat-cell>

@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 
 /* Account Imports */
 import { AccountModule }  from './account/account.module';
+
+import { EmployeeModule } from './employee/employee.module';
+
 /* Dashboard Imports */
 import { DashboardModule }  from './dashboard/dashboard.module';
 
@@ -36,6 +39,7 @@ import { QuickSidebarComponent } from './shared/quick-sidebar/quick-sidebar.comp
   imports: [
     AccountModule,
     DashboardModule,
+    EmployeeModule,
     BrowserModule,
     FormsModule,
     HttpModule,

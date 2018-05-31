@@ -1,0 +1,10 @@
+form.mat-dialog-content.ng-pristine.ng-invalid.ng-touched {
+ 
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  
+  }
+  .mat-dialog-content{
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }

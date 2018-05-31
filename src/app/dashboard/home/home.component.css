@@ -48,19 +48,23 @@ select.m-bootstrap-select {
 .mat-header-cell {
   font-size: 14px;
   font-weight: 600;
+  background: #fbfbfb;
 }
 
-form.mat-dialog-content.ng-pristine.ng-invalid.ng-touched {
- 
-  max-height: 100vh !important;
-  overflow: hidden !important;
 
-}
-.mat-dialog-content{
-  max-height: 100vh !important;
-  overflow: hidden !important;
-}
+mat-row:nth-child(even){
+  background-color:#fff;
+  }
 
+mat-row:nth-child(odd){
+  background-color:#f4f5f8;
+  }
+
+span.m-badge.m-badge--success {
+  position: absolute;
+  margin-left: -28px;
+  margin-top: 4px;
+}
 /* .mat-cell:nth-child(1),
 .mat-header-cell:nth-child(1){
   flex: 0 0 6%;
@@ -156,9 +160,10 @@ ul.twPc-Arrange {
 .twPc-ArrangeSizeFit {
   display: table-cell;
     padding: 0;
-    vertical-align: top;
+    table-layout: fixed;
     float: right;
-    margin-right: 250px;
+    text-align: left;
+    width: 200px;
 }
 .twPc-ArrangeSizeFit a:hover {
   text-decoration: none;

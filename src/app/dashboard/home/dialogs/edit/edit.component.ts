@@ -10,9 +10,9 @@ import { Validators } from '@angular/forms';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditDialogComponent {
+export class EditCountryComponent {
 
-  constructor(public dialogRef: MatDialogRef<EditDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<EditCountryComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public dataService: SetupService) { }
 
   formControl = new FormControl('', [
@@ -34,7 +34,7 @@ export class EditDialogComponent {
     this.dialogRef.close();
   }
 
-  stopEdit(): void {
+  CountryEdit(): void {
     this.dataService.updateCountry(this.data);
   }
 }
